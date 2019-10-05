@@ -11,6 +11,7 @@ let guessLetters = 0;
 
 
 
+
 document.onkeydown = function(event){
 let input = event.key.toLowerCase();
 
@@ -20,15 +21,17 @@ for (let i = 97; i < 123;i++){
     letters.push(String.fromCharCode(i));
 
 }
+const cpuChoice = letters[Math.floor(Math.random() * (25 - 0 + 1)) + 0];
 
-let cpuChoice = letters[Math.floor(Math.random() * (25 - 0 + 1)) + 0];
+
+
 
 if (guessCount==0){
     guessLetters = " ";
     loseCount++;
     guessCount +=11;
     document.getElementById("lose-count").innerHTML = loseCount;
-        
+
     }
 
 
@@ -36,6 +39,11 @@ if (input === cpuChoice){
 winCount++;
 document.getElementById("win-count").innerHTML = winCount;
 console.log("You won! " + input + " " + cpuChoice);
+guessLetters = " ";
+document.getElementById("guess-letters").innerHTML = guessLetters;
+
+
+
 }
 
 else 
